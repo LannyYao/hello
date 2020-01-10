@@ -20,4 +20,10 @@ public class HelloController {
         log.info("Hello Api is invoked");
         return "Hello World";
     }
+
+    @GetMapping("/hello")
+    public String hello1() {
+        log.info("Hello Api 2 is invoked");
+        return "Hello World 2";
+    }
 }
