@@ -9,8 +9,6 @@ if [ -n "$pid" ];then
  echo "开始启动$PORT端口"
  nohup java -jar $JAR_NAME &
 fi
-
-
 if [ ! -n "$pid" ];then
  echo "开始启动$PORT端口"
  nohup java -jar $JAR_NAME &
