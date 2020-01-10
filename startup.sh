@@ -2,7 +2,6 @@
 PORT=8080
 JAR_NAME=$1
 pid=$(netstat -apn | grep $PORT | awk '{print $7}' | cut -d/ -f 1)
-
 if [ -n "$pid" ];then
  echo "$PID号进程尝试终止"
  kill -9 $pid
