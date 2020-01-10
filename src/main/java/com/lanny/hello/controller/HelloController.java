@@ -29,9 +29,9 @@ public class HelloController {
         log.info("user Api is invoked");
 
         Map<String, String> user = new HashMap<>();
-        user.put("name", "Tom");
-        user.put("age", "12");
-        user.put("school", "CTO");
+        user.put("name", "Jerry");
+        user.put("age", "22");
+        user.put("school", "CU");
         return user;
     }
 }
