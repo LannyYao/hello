@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author yao lang
  * @version 1.0
@@ -21,9 +24,14 @@ public class HelloController {
         return "Hello World";
     }
 
-    @GetMapping("/hello")
-    public String hello1() {
-        log.info("Hello Api 2 is invoked");
-        return "Hello World 2";
+    @GetMapping("/user")
+    public Map<String, String> get() {
+        log.info("user Api is invoked");
+
+        Map<String, String> user = new HashMap<>();
+        user.put("name", "Tom");
+        user.put("age", "12");
+        user.put("school", "CTO");
+        return user;
     }
 }
