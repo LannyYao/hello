@@ -6,22 +6,19 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
-    PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     /**
      * 注入AuthenticationManager接口，启用OAuth2密码模式
-     *
-     * @return
-     * @throws Exception
      */
     @Bean
     @Override
@@ -31,9 +28,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 通过HttpSecurity实现Security的自定义过滤配置
-     *
-     * @param httpSecurity
-     * @throws Exception
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
