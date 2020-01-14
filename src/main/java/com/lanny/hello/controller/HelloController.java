@@ -1,12 +1,11 @@
 package com.lanny.hello.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author yao lang
@@ -15,23 +14,19 @@ import java.util.Map;
  */
 @Slf4j
 @RestController
-@RequestMapping("/hello")
 public class HelloController {
 
-    @GetMapping
-    public String hello() {
-        log.info("Hello Api is invoked");
-        return "Hello World";
+    @GetMapping("/product/{id}")
+    public String getProduct(@PathVariable String id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        log.info("isAuthenticated:{},name:{}", authentication.isAuthenticated(), authentication.getName());
+        return "product id : " + id;
     }
 
-    @GetMapping("/user")
-    public Map<String, String> get() {
-        log.info("user Api is invoked");
-
-        Map<String, String> user = new HashMap<>();
-        user.put("name", "Mick");
-        user.put("age", "10");
-        user.put("school", "Hah");
-        return user;
+    @GetMapping("/order/{id}")
+    public String getOrder(@PathVariable String id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        log.info("isAuthenticated:{},name:{}", authentication.isAuthenticated(), authentication.getName());
+        return "order id : " + id;
     }
 }
