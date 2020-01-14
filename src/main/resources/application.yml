@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hello
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.99.100:3306/hello?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8090
+
+logging.level.org.springframework.security: INFO
