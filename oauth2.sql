@@ -71,6 +71,12 @@ VALUES('client', 'ui', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BW
 INSERT INTO users(id, username, password, enabled, email)
 VALUES(1, 'mini-program', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
 
+INSERT INTO users(id, username, password, enabled, email)
+VALUES(2, 'web', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
+
 INSERT INTO authorities(id, username, authority)
 VALUES(1, 'mini-program', 'MINI-PROGRAM');
+
+INSERT INTO authorities(id, username, authority)
+VALUES(2, 'web', 'WEB');
 
