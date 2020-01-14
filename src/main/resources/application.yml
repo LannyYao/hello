@@ -14,4 +14,12 @@ spring:
 server:
   port: 8090
 
+aliyun:
+  account:
+    accessKey: xxx
+    accessSecret: xxx
+  sms:
+    address: dysmsapi.aliyuncs.com
+
+
 logging.level.org.springframework.security: INFO
