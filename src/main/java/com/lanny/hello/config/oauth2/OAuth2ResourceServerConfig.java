@@ -1,4 +1,4 @@
-package com.lanny.hello.config;
+package com.lanny.hello.config.oauth2;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

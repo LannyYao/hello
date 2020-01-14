@@ -64,3 +64,13 @@ CREATE TABLE `oauth_client_details` (
   `autoapprove` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO oauth_client_details(client_id, resource_ids, client_secret, `scope`, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove)
+VALUES('client', 'ui', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 'all', 'client_credentials,password,refresh_token', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO users(id, username, password, enabled, email)
+VALUES(1, 'mini-program', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
+
+INSERT INTO authorities(id, username, authority)
+VALUES(1, 'mini-program', 'MINI-PROGRAM');
+

@@ -1,4 +1,4 @@
-package com.lanny.hello.config;
+package com.lanny.hello.config.oauth2;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
