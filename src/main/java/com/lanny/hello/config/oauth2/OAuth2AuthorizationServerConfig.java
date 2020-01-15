@@ -1,5 +1,6 @@
 package com.lanny.hello.config.oauth2;
 
+import com.lanny.hello.service.MiniProgramUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,6 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
@@ -26,7 +26,6 @@ import java.util.Arrays;
 @EnableAuthorizationServer
 @RequiredArgsConstructor
 public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-
 
     private final AuthenticationManager authenticationManager;
 
@@ -45,7 +44,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     @Bean
     public UserDetailsService jdbcUserDetails() {
-        return new JdbcUserDetailsManager(dataSource);
+        return new MiniProgramUserDetails(dataSource);
+//        return new JdbcUserDetailsManager(dataSource);
     }
 
     /**

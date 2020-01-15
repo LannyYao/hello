@@ -7,4 +7,8 @@ import lombok.NoArgsConstructor;
 public class GlobalConstant {
 
     public static final String RESOURCE_IDS = "ui";
+
+    public static final String SALT = "internal-plus";
+
+    public static final String ADMIN_USER = "admin";
 }
