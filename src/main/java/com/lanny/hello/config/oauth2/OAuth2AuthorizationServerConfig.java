@@ -13,11 +13,14 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
 @Configuration
 @EnableAuthorizationServer
@@ -32,6 +35,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     private final TokenStore tokenStore;
 
     private final JwtAccessTokenConverter jwtAccessTokenConverter;
+
+    private final TokenEnhancer jwtTokenEnhancer;
 
     @Bean
     public ClientDetailsService jdbcClientDetails() {
@@ -56,10 +61,15 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
+
+        TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+        enhancerChain.setTokenEnhancers(Arrays.asList(jwtTokenEnhancer, jwtAccessTokenConverter));
+
         endpoints.userDetailsService(jdbcUserDetails())
                 .tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
                 .accessTokenConverter(jwtAccessTokenConverter)
+                .tokenEnhancer(enhancerChain)
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
     }
 
