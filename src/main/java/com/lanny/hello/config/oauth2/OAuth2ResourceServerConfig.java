@@ -21,6 +21,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
+                .antMatchers("/openid").permitAll()
                 .antMatchers("/**").authenticated();
 //                .antMatchers("/order/**").authenticated();      //配置order访问控制，必须认证过后才可以访问
 

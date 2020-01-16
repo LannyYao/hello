@@ -9,33 +9,33 @@
 -- ----------------------------
 -- Table structure for groups
 -- ----------------------------
-DROP TABLE IF EXISTS `groups`;
-CREATE TABLE `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `groups`;
+-- CREATE TABLE `groups` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `group_name` varchar(255) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for group_authorities
 -- ----------------------------
-DROP TABLE IF EXISTS `group_authorities`;
-CREATE TABLE `group_authorities` (
-  `group_id` int(11) NOT NULL AUTO_INCREMENT,
-  `authority` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `group_authorities`;
+-- CREATE TABLE `group_authorities` (
+--   `group_id` int(11) NOT NULL AUTO_INCREMENT,
+--   `authority` varchar(255) DEFAULT NULL,
+--   PRIMARY KEY (`group_id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for group_members
 -- ----------------------------
-DROP TABLE IF EXISTS `group_members`;
-CREATE TABLE `group_members` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `group_members`;
+-- CREATE TABLE `group_members` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `username` varchar(255) DEFAULT NULL,
+--   `group_id` int(11) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for users
@@ -69,14 +69,7 @@ INSERT INTO oauth_client_details(client_id, resource_ids, client_secret, `scope`
 VALUES('client', 'ui', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 'all', 'client_credentials,password,refresh_token', NULL, NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO users(id, username, password, enabled, email)
-VALUES(1, 'mini-program', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
-
-INSERT INTO users(id, username, password, enabled, email)
-VALUES(2, 'web', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
+VALUES(1, 'admin', '$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m', 1, NULL);
 
 INSERT INTO authorities(id, username, authority)
-VALUES(1, 'mini-program', 'MINI-PROGRAM');
-
-INSERT INTO authorities(id, username, authority)
-VALUES(2, 'web', 'WEB');
-
+VALUES(1, 'admin', 'ADMIN');

@@ -1,8 +1,8 @@
 package com.lanny.hello.service;
 
 import com.lanny.hello.dao.UserRepository;
-import com.lanny.hello.dao.model.Account;
-import com.lanny.hello.dao.model.Authority;
+import com.lanny.hello.dao.entity.Account;
+import com.lanny.hello.dao.entity.Authority;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

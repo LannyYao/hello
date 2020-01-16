@@ -1,4 +1,4 @@
-package com.lanny.hello.dao.model;
+package com.lanny.hello.dao.entity;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Authority implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auth_id")
     private Integer id;
 

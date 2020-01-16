@@ -1,4 +1,4 @@
-package com.lanny.hello.dao.model;
+package com.lanny.hello.dao.entity;
 
 import lombok.*;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +19,7 @@ import java.util.Set;
 public class Account {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
 
