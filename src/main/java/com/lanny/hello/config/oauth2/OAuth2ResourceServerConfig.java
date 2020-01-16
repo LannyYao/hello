@@ -21,6 +21,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
+                .antMatchers("/validation_code").permitAll()
                 .antMatchers("/openid").permitAll()
                 .antMatchers("/files").permitAll()
                 .antMatchers("/**").authenticated();

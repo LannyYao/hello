@@ -22,8 +22,10 @@ clients:
     account:
       accessKey: ${aliyun.account.accessKey}
       accessSecret: ${aliyun.account.accessSecret}
+      region: ${aliyun.account.region:cn-hangzhou}
     sms:
-      address: dysmsapi.aliyuncs.com
+      template: SMS_182671558
+      sign: 学长帮
 
 
 logging.level.org.springframework.security: INFO
