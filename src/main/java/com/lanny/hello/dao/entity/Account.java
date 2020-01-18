@@ -48,7 +48,8 @@ public class Account {
     }
 
     public User toSecurityUser() {
-        return new User(username,
+        return new User(
+                username,
                 password,
                 Collections.singletonList(new SimpleGrantedAuthority(UserType.ADMIN.toString()))
         );
